@@ -30,13 +30,10 @@ class
   end
 
   def can_be_archived?
-   true
+    true
   end
 
   def move_to_archive?
-    if can_be_archived?
-      @archived = true
-    end
+    @archived = true if can_be_archived?
   end
-
 end
