@@ -2,25 +2,28 @@ class App
   def get_num(option)
     case option
     when '1'
-      list_all_books
+      puts 'list_all_books'
     when '2'
-      list_all_music - albums
+      puts 'list_all_music_albums'
     when '3'
-      list_all_games
+      puts 'list_all_games'
     when '4'
-      list_all_genres
+      puts 'list_all_genres'
     when '5'
-      list_all_labels
+      puts 'list_all_labels'
     when '6'
-      list_all_authors
+      puts 'list_all_authors'
+    end
+  end
+
+  def add_num(option)
+    case option
     when '7'
-      add_book
+      puts 'add_book'
     when '8'
-      add_music_album
+      puts 'add_music_album'
     when '9'
-      add_game
-    else
-      puts 'Please enter a number between 1 and 7.'
+      puts 'add_game'
     end
   end
 
