@@ -1,7 +1,6 @@
 require_relative 'label'
 
-class
-   Item
+class Item
   attr_reader :genre, :author, :label
   attr_accessor :publish_date
 
@@ -29,8 +28,8 @@ class
     @genre.items.push(self) unless @genre.items.include?(self)
   end
 
-  def can_be_archived?
-    true
+  def can_be_archived?(publish_date)
+    return true if publish_date
   end
 
   def move_to_archive?
