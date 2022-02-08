@@ -1,7 +1,5 @@
-require_relative 'label'
-
 class Item
-  attr_reader :genre, :author, :label, :id
+  attr_reader :genre, :author, :label
   attr_accessor :publish_date
 
   def initialize(publish_date, id: nil, archived: false)
@@ -29,7 +27,9 @@ class Item
   end
 
   def can_be_archived?
-    true
+    pulished_year = date.split('/')[-1].to_i
+    current_year = Date.current.year.to_i
+    @publish_date = current_year - pulished_year > 10
   end
 
   def move_to_archive?
