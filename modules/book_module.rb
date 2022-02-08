@@ -1,3 +1,4 @@
+# rubocop:disable Layout/LineLength
 require '../classes/book'
 module BookModule
   def user_input(label)
@@ -25,3 +26,4 @@ module BookModule
     end
   end
 end
+# rubocop:enable Layout/LineLength
