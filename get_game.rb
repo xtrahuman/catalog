@@ -13,7 +13,7 @@ class AllGame
   def add_game
     puts '------------------------'
     puts 'enter game details below'
-    puts "------------------------"
+    puts '------------------------'
     last_played = input('last_played_at (in date format e.g 2/2/22)')
     multiplayer = input('multiplayer (in strings e.g xtrahuman)')
     publish_date = input('publish_date (in date format e.g 2/2/22)')
