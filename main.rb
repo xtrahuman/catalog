@@ -1,5 +1,4 @@
 require_relative 'app'
-require_relative 'albumfunction'
 require 'json'
 
 class Main
@@ -16,10 +15,9 @@ class Main
       @app.add_num(option) if %w[7 8 9].include?(option)
       puts 'Please enter a number between 1 and 9.' unless %w[1 2 3 4 5 6 7 8 9].include?(option.to_s)
       @app.get_num(option)
-      @app.savedata
-     
+      # @app.savedata
     end
-   
+
     puts 'thanks for using our catalog'
   end
 

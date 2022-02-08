@@ -1,5 +1,5 @@
-require_relative 'musicalbum'
-require_relative 'genre'
+require_relative '../classes/musicalbum'
+require_relative '../classes/genre'
 
 class AlbumFunction
   def initialize

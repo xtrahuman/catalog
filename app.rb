@@ -1,10 +1,7 @@
-require_relative 'albumfunction'
-require_relative 'preservedata'
+require_relative './modules/albumfunction'
 require 'json'
 
 class App
-  include SaveMusicData
-
   def initialize
     @album_list = AlbumFunction.new
   end
@@ -35,9 +32,5 @@ class App
     when '9'
       puts 'add_game'
     end
-  end
-
-  def savedata
-    save_all_music_albums
   end
 end
