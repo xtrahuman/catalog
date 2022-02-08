@@ -30,7 +30,9 @@ class
   end
 
   def can_be_archived?
-    true
+    pulished_year = date.split('/')[-1].to_i
+    current_year = Date.current.year.to_i
+    @publish_date = current_year - pulished_year > 10
   end
 
   def move_to_archive?
