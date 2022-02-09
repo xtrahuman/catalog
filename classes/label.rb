@@ -10,7 +10,7 @@ class Label
     @labels = {
       'Gift' => 'red',
       'New' => 'blue',
-      'Active' => 'teal'
+      'Active' => 'teal',
       'dbr' => 'red'
     }
   end
