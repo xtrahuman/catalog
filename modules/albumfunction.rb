@@ -7,22 +7,22 @@ class AlbumFunction
   end
 
   def get_user_input(message)
-    print `#{message} => `
+    print "#{message} => "
     gets.chomp
   end
 
   def list_genres
-      puts 'There are no Genres to be displayed' if @all_albums.empty?
-      @all_albums.each_with_index do |album, i|
-        puts("#{i}) Genre: #{album.genre.name}, Genre_id: #{album.genre.id}")
-      end
+    puts 'There are no Genres to be displayed' if @all_albums.empty?
+    @all_albums.each_with_index do |album, i|
+      puts("#{i}) Genre: #{album.genre.name}, Genre_id: #{album.genre.id}")
+    end
   end
 
   def list_albums
-      puts 'There are no Albums to be displayed' if @all_albums.empty?
-      @all_albums.each_with_index do |album, i|
-        puts("#{i}) Published Date: #{album.publish_date}, Album_id: #{album.id}")
-      end
+    puts 'There are no Albums to be displayed' if @all_albums.empty?
+    @all_albums.each_with_index do |album, i|
+      puts("#{i}) Published Date: #{album.publish_date}, Album_id: #{album.id}, on_spotify: #{album.on_spotify}")
+    end
   end
 
   def add_music_album
@@ -40,28 +40,35 @@ class AlbumFunction
   end
 
   def create_new_genre
-    genre = get_user_input('Please enetr name of genre')
+    genre = get_user_input('Please enter name of genre')
     existing = @all_albums.any? { |album| album.genre.name.downcase == genre.downcase }
-    puts 'Genre already exists' if existing
-    new_genre = Genre.new(genre)
-    date = get_user_input('Please enter album publish date')
-    on_spotify = get_user_input('Is album on spotify, Enter yes as [y] and no as [n]')
-    on_spotify = on_spotify.downcase == 'y'
-    new_album = MusicAlbum.new(publish_date: date, on_spotify: on_spotify)
-    new_album.genre = new_genre
-    @all_albums.push(new_album)
-    puts 'Album Created Successfully'
+    if existing
+      puts 'Genre already exists'
+    else
+      new_genre = Genre.new(name: genre)
+      date = get_user_input('Please enter album publish date in this format DD/MM/YYYY')
+      on_spotify = get_user_input('Is album on spotify, Enter yes as [y] and no as [n]').downcase == 'y'
+      new_album = MusicAlbum.new(publish_date: date, on_spotify: on_spotify)
+      new_album.genre = new_genre
+      @all_albums.push(new_album)
+      puts 'Album Created Successfully'
+    end
   end
 
   def select_existing_genre
-    puts 'Please select index of genre you wil like to add'
-    @all_albums.each_with_index { |album, i| puts("#{i}), Genre: #{album.genre.name}, Genre_ID: #{album.genre.id}") }
-    index = gets.chomp.to_i
-    genre = @all_albums[index].genre
-    date = get_user_input('Enter album Publish date')
-    on_spotify = get_user_input('Is album on spotify, Enter yes as [y] and no as [n]')
-    on_spotify = gets.chomp.downcase == 'y'
-    new_album = MusicAlbum.new(date, on_spotify: on_spotify)
-    new_album.genre = genre
-    @all_albums << new_album
+    if @all_albums.empty?
+      print 'There are no genres added, please add a new genre'
+    else
+      @all_albums.each_with_index { |album, i| puts("#{i}), Genre: #{album.genre.name}, Genre_ID: #{album.genre.id}") }
+      index = get_user_input('Select index of genre you want to add').to_i
+      genre = @all_albums[index].genre
+      date = get_user_input('Enter album Publish date in this format DD/MM/YYYY')
+      on_spotify = get_user_input('Is album on spotify, Enter yes as [y] and no as [n]').downcase == 'y'
+      new_album = MusicAlbum.new(publish_date: date, on_spotify: on_spotify)
+      new_album.genre = genre
+      @all_albums << new_album
+      puts 'Album Created Successfully'
+    end
+   
+  end
 end
