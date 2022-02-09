@@ -45,10 +45,10 @@ class AlbumFunction
     if existing
       puts 'Genre already exists'
     else
-      new_genre = Genre.new(name: genre)
+      new_genre = Genre.new(genre)
       date = get_user_input('Please enter album publish date in this format DD/MM/YYYY')
       on_spotify = get_user_input('Is album on spotify, Enter yes as [y] and no as [n]').downcase == 'y'
-      new_album = MusicAlbum.new(publish_date: date, on_spotify: on_spotify)
+      new_album = MusicAlbum.new(date, on_spotify: on_spotify)
       new_album.genre = new_genre
       @all_albums.push(new_album)
       puts 'Album Created Successfully'
@@ -64,7 +64,7 @@ class AlbumFunction
       genre = @all_albums[index].genre
       date = get_user_input('Enter album Publish date in this format DD/MM/YYYY')
       on_spotify = get_user_input('Is album on spotify, Enter yes as [y] and no as [n]').downcase == 'y'
-      new_album = MusicAlbum.new(publish_date: date, on_spotify: on_spotify)
+      new_album = MusicAlbum.new(date, on_spotify: on_spotify)
       new_album.genre = genre
       @all_albums << new_album
       puts 'Album Created Successfully'
