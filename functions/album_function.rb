@@ -13,14 +13,14 @@ class AlbumFunction
   def list_genres
     puts 'There are no Genres to be displayed' if @albums.empty?
     @albums.each_with_index do |album, i|
-      puts("#{i}) Genre: #{album.genre.name}")
+      puts("#{i}) #{album.genre.name.upcase} genre available")
     end
   end
 
   def list_albums
     puts 'There are no Albums to be displayed' if @albums.empty?
     @albums.each_with_index do |album, i|
-      puts("#{i}) Published Date: #{album.publish_date}, on_spotify: #{album.on_spotify}")
+      puts("#{i}) #{album.genre.name.upcase} album, published on #{album.publish_date}, on_spotify: #{album.on_spotify}")
     end
   end
 
