@@ -1,6 +1,5 @@
 require_relative './modules/albumfunction'
 
-
 class App
   def initialize
     @albums = []

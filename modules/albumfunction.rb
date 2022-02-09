@@ -69,6 +69,5 @@ class AlbumFunction
       @all_albums << new_album
       puts 'Album Created Successfully'
     end
-   
   end
 end
