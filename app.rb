@@ -25,7 +25,7 @@ class App
     when '5'
       @book_list.list_all_labels
     when '6'
-      puts @game_list.list_all_authors
+      @game_list.list_all_authors
     end
   end
 
