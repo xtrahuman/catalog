@@ -28,7 +28,6 @@ class Item
     @genre.items.push(self) unless @genre.items.include?(self)
   end
 
-
   def can_be_archived?
     pulished_year = @publish_date.split('/')[-1].to_i
     current_year = Date.today.year.to_i
