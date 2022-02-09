@@ -1,5 +1,5 @@
-require_relative '../author'
-require_relative '../items'
+require_relative '../classes/author'
+require_relative '../classes/items'
 
 describe Author do
   context 'It should create rental' do

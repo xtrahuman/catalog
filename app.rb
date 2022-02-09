@@ -1,4 +1,4 @@
-require_relative 'get_game'
+require_relative 'modules/get_game'
 class App
   def initialize
     @games = []
@@ -18,7 +18,7 @@ class App
     when '5'
       puts 'list_all_labels'
     when '6'
-      puts 'list_all_authors'
+      puts @get_game.list_all_authors
     end
   end
 
@@ -32,10 +32,4 @@ class App
       puts @get_game.add_game
     end
   end
-
-  # def savedata
-  #   @run_data.save_music
-  #   @run_data.save_books
-  #   @run_data.save_game
-  # end
 end

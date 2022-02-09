@@ -1,5 +1,3 @@
-require_relative 'label'
-
 class Item
   attr_reader :genre, :author, :label
   attr_accessor :publish_date

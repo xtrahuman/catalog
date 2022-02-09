@@ -1,4 +1,4 @@
-require_relative '../game'
+require_relative '../classes/game'
 
 describe Game do
   context 'When testing the game class' do
