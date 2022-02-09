@@ -18,7 +18,7 @@ class GameFunction
     first_name = @global.input('Author First Name')
     last_name = @global.input('Author Last Name')
     author = Author.new(first_name, last_name)
-    item = Game.new(last_played, multiplayer, publish_date)
+    item = Game.new(last_played, multiplayer, publish_date: publish_date)
     author.add_item(item)
     @games.push(item)
     puts 'Game Created Successfully'

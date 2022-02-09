@@ -1,12 +1,14 @@
 require_relative './functions/game_function'
 require_relative './functions/album_function'
 require_relative './functions/book_function'
+require_relative './functions/global'
 
 class App
   def initialize
-    @games = []
+    @preserve = GlobalFunction.new
+    @games = @preserve.load_data('games')
     @game_list = GameFunction.new(@games)
-    @albums = []
+    @albums = @preserve.load_data('musicalbum')
     @album_list = AlbumFunction.new(@albums)
     @books = []
     @book_list = BookFuction.new(@books)
@@ -38,5 +40,10 @@ class App
     when '9'
       @game_list.add_game
     end
+  end
+
+  def save
+    @preserve.save_data('musicalbum', @albums)
+    @preserve.save_data('games', @games)
   end
 end

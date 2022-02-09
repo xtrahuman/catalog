@@ -1,6 +1,7 @@
 require_relative '../classes/music_album'
 require_relative '../classes/genre'
 require_relative './global'
+require 'json'
 
 # rubocop:disable Layout/LineLength
 class AlbumFunction
@@ -12,14 +13,14 @@ class AlbumFunction
   def list_genres
     puts 'There are no Genres to be displayed' if @albums.empty?
     @albums.each_with_index do |album, i|
-      puts("#{i}) Genre: #{album.genre.name}, Genre_id: #{album.genre.id}")
+      puts("#{i}) Genre: #{album.genre.name}")
     end
   end
 
   def list_albums
     puts 'There are no Albums to be displayed' if @albums.empty?
     @albums.each_with_index do |album, i|
-      puts("#{i}) Published Date: #{album.publish_date}, Album_id: #{album.id}, on_spotify: #{album.on_spotify}")
+      puts("#{i}) Published Date: #{album.publish_date}, on_spotify: #{album.on_spotify}")
     end
   end
 
@@ -42,13 +43,13 @@ class AlbumFunction
     if existing
       puts 'Genre already exists'
     else
-      new_genre = Genre.new(genre)
+      new_genre = Genre.new(name: genre)
       puts '------------------------'
       puts 'Enter Album details below'
       puts '------------------------'
       date = @global.input('Please enter album publish date in this format DD/MM/YYYY')
       on_spotify = @global.input('Is album on spotify, Enter yes as [y] and no as [n]').downcase == 'y'
-      new_album = MusicAlbum.new(date, on_spotify: on_spotify)
+      new_album = MusicAlbum.new(publish_date: date, on_spotify: on_spotify)
       new_album.genre = new_genre
       @albums.push(new_album)
       puts 'Album Created Successfully'
@@ -59,12 +60,12 @@ class AlbumFunction
     if @albums.empty?
       print 'There are no genres added, please add a new genre'
     else
-      @albums.each_with_index { |album, i| puts("#{i}), Genre: #{album.genre.name}, Genre_ID: #{album.genre.id}") }
+      @albums.each_with_index { |album, i| puts("#{i}), Genre: #{album.genre.name}") }
       index = @global.input('Select index of genre you want to add').to_i
       genre = @albums[index].genre
       date = @global.input('Enter album Publish date in this format DD/MM/YYYY')
       on_spotify = @global.input('Is album on spotify, Enter yes as [y] and no as [n]').downcase == 'y'
-      new_album = MusicAlbum.new(date, on_spotify: on_spotify)
+      new_album = MusicAlbum.new(publish_date: date, on_spotify: on_spotify)
       new_album.genre = genre
       @albums << new_album
       puts 'Album Created Successfully'

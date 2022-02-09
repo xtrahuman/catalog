@@ -3,8 +3,8 @@ require_relative '../classes/genre'
 
 describe MusicAlbum do
   context 'Testing the MusicalAlbum class' do
-    african_giant = MusicAlbum.new('2/05/2019')
-    dancehall = Genre.new('dancehall')
+    african_giant = MusicAlbum.new(publish_date: '2/05/2019')
+    dancehall = Genre.new(name: 'dancehall')
     african_giant.genre = dancehall
 
     it 'Should Pass all the tests' do

@@ -3,7 +3,7 @@ require_relative '../classes/game'
 describe Game do
   context 'When testing the game class' do
     before(:each) do
-      @game = Game.new('10/10/2022', 'xtra', '10/20/1998')
+      @game = Game.new('10/10/2022', 'xtra', publish_date: '10/20/1998')
     end
 
     it 'should initialize a game object with a last_played_at, multiplayer, publish_date' do

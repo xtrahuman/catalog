@@ -4,7 +4,7 @@ require_relative '../classes/book'
 describe Book do
   context 'When testing the book class' do
     before(:each) do
-      @book = Book.new('12/12/2021', 'We Publish', 'Bad')
+      @book = Book.new('We Publish', 'Bad', publish_date: '12/12/2021')
     end
 
     it 'should initialize a Book object with a publisher, publish date, cover state and otheras' do
