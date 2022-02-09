@@ -4,6 +4,9 @@ require 'json'
 class Main
   def initialize
     @app = App.new
+    puts '------------------------'
+    puts 'WELCOME TO CATALOG OF THINGS'
+    puts '------------------------'
   end
 
   def start
