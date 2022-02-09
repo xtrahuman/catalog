@@ -2,8 +2,8 @@ require_relative 'items'
 require_relative 'genre'
 
 class MusicAlbum < Item
-  def initialize(publish_date, id: nil, on_spotify: true, archived: false)
-    super(publish_date, archived: archived, id: id)
+  def initialize(publish_date:, id: nil, on_spotify: true, archived: false)
+    super(publish_date: publish_date, archived: archived, id: id)
     @on_spotify = on_spotify
   end
 

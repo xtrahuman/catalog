@@ -1,9 +1,12 @@
 require_relative './modules/albumfunction'
+require_relative 'preservedata'
 require 'json'
 
 class App
+  include SaveMusicData
   def initialize
-    @album_list = AlbumFunction.new
+    @albums = list_saved_albums
+    @album_list = AlbumFunction.new(@albums)
   end
 
   def get_num(option)
