@@ -17,3 +17,18 @@ CREATE TABLE labels (
      title VARCHAR(500),
      color VARCHAR(500),
 )
+
+CREATE TABLE musicalbum (
+     id INT GENERATED ALWAYS AS IDENTITY NOT NULL PRIMARY KEY,
+     genre_id INT, REFERENCES genre(id)
+     author_id INT, REFERENCES author(id)
+     source_id INT, REFERENCES source(id)
+     label_id INT,  REFERENCES label(id)
+     publish_date DATE,
+     archived BOOLEAN,
+);
+
+CREATE TABLE genre (
+     id INT GENERATED ALWAYS AS IDENTITY NOT NULL PRIMARY KEY,
+     name VARCHAR(500),
+);

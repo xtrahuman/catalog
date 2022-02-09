@@ -1,14 +1,21 @@
+require_relative './modules/albumfunction'
+
 class App
+  def initialize
+    @albums = []
+    @album_list = AlbumFunction.new(@albums)
+  end
+
   def get_num(option)
     case option
     when '1'
       puts 'list_all_books'
     when '2'
-      puts 'list_all_music_albums'
+      @album_list.list_albums
     when '3'
       puts 'list_all_games'
     when '4'
-      puts 'list_all_genres'
+      @album_list.list_genres
     when '5'
       puts 'list_all_labels'
     when '6'
@@ -21,15 +28,9 @@ class App
     when '7'
       puts 'add_book'
     when '8'
-      puts 'add_music_album'
+      @album_list.add_music_album
     when '9'
       puts 'add_game'
     end
-  end
-
-  def savedata
-    @run_data.save_music
-    @run_data.save_books
-    @run_data.save_game
   end
 end
