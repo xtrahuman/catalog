@@ -1,15 +1,18 @@
 require_relative './functions/game_function'
 require_relative './functions/album_function'
 require_relative './functions/book_function'
+require_relative './data/run_data'
+require_relative './data/read_data'
 
 class App
   def initialize
-    @games = []
+    @games = ReadData.new.read_games
     @game_list = GameFunction.new(@games)
     @albums = []
     @album_list = AlbumFunction.new(@albums)
     @books = []
     @book_list = BookFuction.new(@books)
+    @run_data = Data.new(@games)
   end
 
   def get_num(option)
@@ -38,5 +41,9 @@ class App
     when '9'
       @game_list.add_game
     end
+  end
+
+  def save
+    @run_data.save_games
   end
 end
