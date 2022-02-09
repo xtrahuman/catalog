@@ -7,10 +7,16 @@ class Label
     @title = title
     @color = color
     @items = []
+    @labels = {
+      'Gift' => 'red',
+      'New' => 'blue',
+      'Active' => 'teal',
+      'dbr' => 'red'
+    }
   end
 
   def add_item(item)
+    @items << item
     item.label = self
-    @items.push(item)
   end
 end
