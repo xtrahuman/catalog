@@ -11,6 +11,7 @@ class Label
       'Gift' => 'red',
       'New' => 'blue',
       'Active' => 'teal'
+      'dbr' => 'red'
     }
   end
 
