@@ -16,13 +16,13 @@ class App
     when '2'
       @album_list.list_albums
     when '3'
-      puts @get_game.list_all_games
+      @get_game.list_all_games
     when '4'
       @album_list.list_genres
     when '5'
       puts 'list_all_labels'
     when '6'
-      puts @get_game.list_all_authors
+      @get_game.list_all_authors
     end
   end
 
@@ -33,7 +33,7 @@ class App
     when '8'
       @album_list.add_music_album
     when '9'
-      puts @get_game.add_game
+      @get_game.add_game
     end
   end
 end
