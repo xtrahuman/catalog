@@ -2,12 +2,16 @@
 
 # Catalog
 
-> This project uses Ruby to create a list of catalog that contains music albums, genres, authors, games, books, labels.
+> This project uses Ruby to create a list of catalog that contains music albums, genres, authors, games, books, labels. This project lets users keeps track of items in their catalog.
 
 
 ## Built With
 
 - Ruby
+
+## LIve video Presentation
+
+- Click [here](https://drive.google.com/file/d/16h1mqwz3FWpsG1qY-2GybqOa7e9mEsDR/view?usp=sharing) to watch video presentation.
 
 ## Getting Started
 
