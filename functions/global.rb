@@ -18,6 +18,8 @@ class GlobalFunction
         save_albums(data_json, data)
       when 'games'
         save_games(data_json, data)
+      when 'books'
+        save_books(data_json, data)
       end
     end
     File.write("./json/#{file_name}.json", JSON.generate(data_json)) if data_input.any?
@@ -32,6 +34,8 @@ class GlobalFunction
           load_album(my_data, data)
         when 'games'
           load_games(my_data, data)
+        when 'books'
+          load_books(my_data, data)
         end
       end
       my_data
@@ -54,6 +58,18 @@ class GlobalFunction
              })
   end
 
+  def save_books(arr, book)
+    arr.push({
+               publish_date: book.publish_date,
+               publisher: book.publisher,
+               cover_state: book.cover_state,
+               label: {
+                 title: book.label.title,
+                 color: book.label.color
+               }
+             })
+  end
+
   def load_album(arr, data)
     album = MusicAlbum.new(publish_date: data['publish_date'], on_spotify: data['on_spotify'])
     genre = Genre.new(name: data['genre'])
@@ -66,5 +82,12 @@ class GlobalFunction
     author = Author.new(data['author']['first_name'], data['author']['last_name'])
     games.author = author
     arr.push(games)
+  end
+
+  def load_books(arr, data)
+    book = Book.new(data['publisher'], data['cover_state'], publish_date: data['publish_date'])
+    label = Label.new(data['label']['title'], data['label']['color'])
+    book.label = label
+    arr.push(book)
   end
 end

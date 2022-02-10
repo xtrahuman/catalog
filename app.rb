@@ -10,7 +10,7 @@ class App
     @game_list = GameFunction.new(@games)
     @albums = @preserve.load_data('musicalbum')
     @album_list = AlbumFunction.new(@albums)
-    @books = []
+    @books = @preserve.load_data('books')
     @book_list = BookFuction.new(@books)
   end
 
@@ -45,5 +45,6 @@ class App
   def save
     @preserve.save_data('musicalbum', @albums)
     @preserve.save_data('games', @games)
+    @preserve.save_data('books', @books)
   end
 end
