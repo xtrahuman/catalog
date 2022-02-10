@@ -15,8 +15,3 @@ class Author
     item.author = self
   end
 end
-gg = Author.new('gg', 'www')
-ff = Item.new('22')
-gg.add_item(ff)
-gg.add_item(ff)
-puts gg.items.map

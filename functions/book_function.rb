@@ -18,7 +18,7 @@ class BookFuction
     title = @global.input('Label title')
     color = @global.input('Label color')
     label = Label.new(title, color)
-    book = Book.new(publish_date, publisher, cover_state)
+    book = Book.new(publisher, cover_state, publish_date: publish_date)
     label.add_item(book)
     @books.push(book)
     puts 'Book Created Successfully'
