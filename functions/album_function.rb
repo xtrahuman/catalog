@@ -3,7 +3,6 @@ require_relative '../classes/genre'
 require_relative './global'
 require 'json'
 
-# rubocop:disable Layout/LineLength
 class AlbumFunction
   def initialize(albums)
     @albums = albums
@@ -20,12 +19,14 @@ class AlbumFunction
   def list_albums
     puts 'There are no Albums to be displayed' if @albums.empty?
     @albums.each_with_index do |album, i|
-      puts("#{i}) #{album.genre.name.upcase} album, published on #{album.publish_date}, on_spotify: #{album.on_spotify}")
+      puts "#{i}) #{album.genre.name.upcase} Album."
+      puts "Published on: #{album.publish_date}, On Spotify: #{album.on_spotify}"
     end
   end
 
   def add_music_album
-    option = @global.input('Do you want to create a new genre (1) or select from an existing one (2) [Input the number]:')
+    text = 'Do you want to create a new genre (1) or select from an existing one (2) [Input the number]:'
+    option = @global.input(text)
     case option
     when '1'
       create_new_genre
@@ -48,7 +49,7 @@ class AlbumFunction
       puts 'Enter Album details below'
       puts '------------------------'
       date = @global.input('Please enter album publish date in this format DD/MM/YYYY')
-      on_spotify = @global.input('Is album on spotify, Enter yes as [y] and no as [n]').downcase == 'y'
+      on_spotify = @global.input('Is album on spotify [y/n]').downcase == 'y'
       new_album = MusicAlbum.new(publish_date: date, on_spotify: on_spotify)
       new_album.genre = new_genre
       @albums.push(new_album)
@@ -72,4 +73,3 @@ class AlbumFunction
     end
   end
 end
-# rubocop:enable Layout/LineLength
