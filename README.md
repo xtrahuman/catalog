@@ -15,7 +15,7 @@ To get a local copy up and running follow these simple example steps.
 - copy this link `https://github.com/xtrahuman/catalog.git`.
 - open the command prompt or terminal.
 - write `git clone https://github.com/xtrahuman/catalog.git`.
-- enter the repository folder in your command prompt, in terminal type `cd catalog`.
+- enter the repository folder in your command prompt or terminal type `cd catalog`.
 - run `bundle install`.
 
 ## To run the tests
@@ -23,8 +23,8 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
--Ruby
--rspec
+- Ruby
+- rspec
 
 ## Authors
 
