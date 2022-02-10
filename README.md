@@ -4,7 +4,6 @@
 
 > This project uses Ruby to create a list of catalog that contains music albums, genres, authors, games, books, labels. This project lets users keeps track of items in their catalog.
 
-
 ## Built With
 
 - Ruby
@@ -16,13 +15,19 @@
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
+
 - copy this link `https://github.com/xtrahuman/catalog.git`.
 - open the command prompt or terminal.
 - write `git clone https://github.com/xtrahuman/catalog.git`.
 - enter the repository folder in your command prompt or terminal type `cd catalog`.
 - run `bundle install`.
 
+To start the application.
+
+- run `ruby main.rb`.
+
 ## To run the tests
+
 - Add to the terminal `rspec spec/filename.rb`
 
 ### Prerequisites
